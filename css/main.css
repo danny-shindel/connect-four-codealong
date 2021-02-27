@@ -1,14 +1,68 @@
 * {
   box-sizing: border-box;
+    /* set this on every project, changes default, included everything through border for sizing*/
 }
 
 body {
   height: 100vh;
+    /* viewport units, vh = view height, 100% of the window */
+    /* vw = view width, vmin = scales size based on size of windwo */
   margin: 0;
   display: flex;
+    /* centers content */
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: 'Open Sans', sans-serif;
 }
 
+header {
+  font-size: 5vmin;
+  letter-spacing: 1vmin;
+  color: grey;
+}
+
+#markers {
+  display: grid;
+  grid-template-columns: repeat(7, 10vmin);
+    /* sets up as grid, defines columns and adds divs to them, repeat(# of columns, each column size */
+  gap: 1vmin;
+    /* puts gap between columns */
+}
+
+#markers > div {
+    /* styles div in markers */
+  height: 10vmin;
+    /* width is taken care of b/c inside 10vmin column from above*/
+  border-width: 5vmin;
+  border-color: lightgray transparent transparent;
+  border-style: solid;
+  margin-top: 4vmin;
+  transform: scale(0.7);
+    /* created triangle */
+}
+
+#markers > div:hover {
+    /* pseudo class for hover */
+  transform: scale(0.8);
+    /* how much it scaled up during hover over */
+  transition: all 0.2s ease-in;
+   /* how long is scale transform during hover over  */
+  border-top-color: grey;
+   /* changes color when hovered over */
+}
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(7, 10vmin);
+  grid-template-rows: repeat(6, 10vmin);
+  gap: 1vmin;
+    /* the div will be added to this board starting at the top left going right */
+}
+
+#board > div {
+  border-radius: 50%;
+    /* makes them round */
+  border: .04vmin solid grey
+    /* sets circle boarder color */
+}
